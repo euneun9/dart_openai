@@ -1,0 +1,13 @@
+streamlit
+pandas
+matplotlib
+plotly
+openpyxl
+html5lib
+PyMySQL
+sqlalchemy
+openai
+python-dotenv
+deep_translator
+python-dotenv
+requests
