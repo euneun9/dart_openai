@@ -7,6 +7,10 @@ from dotenv import load_dotenv
 import streamlit as st
 import pymysql
 
+from RAG import answer_question
+
+
+
 load_dotenv()  # env파일을 읽어서 환경변수 설정
 
 key = os.getenv('key')
@@ -14,7 +18,7 @@ openai_key = os.getenv('openai_key')
 HOST = os.getenv("HOST")
 USER = os.getenv("USER")
 PASSWD = os.getenv("PASSWD")
-PORT = os.getenv("PORT")
+PORT = os.getenv("PORT") 
 
 ## 기업 고유번호 DB에서 불러오기
 pymysql.install_as_MySQLdb()  # 파이썬 전용 데이터베이스 커넥터
@@ -125,3 +129,13 @@ if button_result:
     for i, translated_text in enumerate(st.session_state.tabs_data):
         with tabs[i]:
             st.write(translated_text)
+
+            question = st.text_input("질문", "삼성전자에 대해 알려줘.")
+            response = answer_question(question)
+            st.write(response)
+
+
+
+####################################################################
+
+
